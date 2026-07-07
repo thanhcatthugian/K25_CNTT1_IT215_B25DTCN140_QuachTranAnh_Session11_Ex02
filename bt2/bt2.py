@@ -65,7 +65,7 @@ def exception_handler(request:Request,exc:Exception):
         path=request.url.path
     )
 
-@app.get("/smart-home-plans",response_model=Response)
+@app.get("/smart-home-plans",response_model=list[Response])
 def show_all_plan(request:Request,db:Session = Depends(get_db)):
     return create_response(
         status_code=status.HTTP_200_OK,
